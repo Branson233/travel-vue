@@ -15,7 +15,7 @@ import HomeIcons from '../components/Home/Icons'
 import HomeRecommend from '../components/Home/Recommend'
 import HomeWeekend from '../components/Home/Weekend'
 import axios from 'axios'
-
+let indexData = require('../../public/mock/index.json')
 export default {
   name: 'Home',
   components: {
@@ -35,12 +35,8 @@ export default {
     }
   },
   methods: {
-    getHomeInfo () {
-      axios.get('/api/index.json?city='+this.$store.state.city)
-        .then(this.getHomeInfoSucc)
-    },
     getHomeInfoSucc (res) {
-      res=res.data
+      res=indexData
       if(res.ret && res.data) {
         const data =res.data
         this.swiperList=data.swiperList
@@ -52,11 +48,11 @@ export default {
   }, 
   mounted () {
     this.lastCity= this.$store.state.city
-    this.getHomeInfo ()
+    this.getHomeInfoSucc ()
   },
   activated () {
     if (this.lastCity !== this.$store.state.city){
-      this.getHomeInfo()
+      this.getHomeInfoSucc()
       this.lastCity=this.$store.state.city
     } 
   }

@@ -13,6 +13,7 @@ import CitySearch from '../components/City/Search'
 import CityList from '../components/City/List'
 import CityAlphabet from '../components/City/Alphabet'
 import axios from 'axios'
+let cityData = require('../../public/mock/city.json')
 export default {
   name: 'City',
   components:{
@@ -29,12 +30,8 @@ export default {
     }
   },
   methods: {
-    getCityInfo () {
-      axios.get('/api/city.json')
-        .then(this.getCityInfoSucc)
-    },
     getCityInfoSucc (res) {
-      res=res.data
+      res=cityData
       if(res.ret && res.data) {
         const data =res.data
         this.cities=data.cities
@@ -46,7 +43,7 @@ export default {
     }
   }, 
   mounted () {
-    this.getCityInfo ()
+    this.getCityInfoSucc ()
   }
 
 }

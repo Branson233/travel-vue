@@ -1,16 +1,5 @@
-
 module.exports = {
-    publicPath: './',
-    devServer: {
-      port: 8080,
-      proxy: {
-        '/api': {
-          target: 'http://localhost:8080',
-          changeOrigin: true,
-          pathRewrite: {
-            '^/api': '/mock'
-          }
-        }
-      }
-    }
-  }
+    publicPath: process.env.NODE_ENV === 'production'
+    ? '/travel-vue/'
+    : '/'
+}
