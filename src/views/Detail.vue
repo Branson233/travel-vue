@@ -54,5 +54,5 @@ let detailData = require('../../public/mock/detail.json')
 
 <style lang="stylus" scoped>
   .content
-    height: 1000px
+    height: 100vh
 </style>

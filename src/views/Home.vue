@@ -1,10 +1,13 @@
 <template>
   <div class="home">
-    <home-header></home-header>
-    <home-swiper :list="swiperList"></home-swiper>
-    <home-icons :list="iconList"></home-icons>
-    <home-recommend :list="recommendList"></home-recommend>
-    <home-weekend :list="weekendList"></home-weekend>
+    <div class="main">
+      <home-header></home-header>
+      <home-swiper :list="swiperList"></home-swiper>
+      <home-icons :list="iconList"></home-icons>
+      <home-recommend :list="recommendList"></home-recommend>
+      <home-weekend :list="weekendList"></home-weekend>
+    </div>
+    <home-footer class="footer"></home-footer>
   </div>
 </template>
 
@@ -14,6 +17,7 @@ import HomeSwiper from '../components/Home/Swiper'
 import HomeIcons from '../components/Home/Icons'
 import HomeRecommend from '../components/Home/Recommend'
 import HomeWeekend from '../components/Home/Weekend'
+import HomeFooter from '../components/Home/Footer'
 import axios from 'axios'
 let indexData = require('../../public/mock/index.json')
 export default {
@@ -23,7 +27,8 @@ export default {
     HomeSwiper,
     HomeIcons,
     HomeRecommend,
-    HomeWeekend
+    HomeWeekend,
+    HomeFooter
   },
   data () {
     return {
@@ -58,3 +63,9 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+.footer
+  position: fixed
+  bottom:0  
+</style>

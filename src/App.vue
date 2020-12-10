@@ -6,6 +6,6 @@
   </div>
 </template>
 
-<style lang="scss">
-
+<style lang="stylus" scoped>
+  
 </style>
